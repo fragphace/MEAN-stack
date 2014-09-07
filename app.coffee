@@ -13,7 +13,10 @@ app.use bodyParser.urlencoded({ extended: true })
 app.use session({ secret: 'abcdef', resave: true, saveUninitialized: true })
 
 app.get '/', (req, res) ->
-    res.render 'template.html'
+    res.sendFile "#{__dirname}/views/template.html"
+
+app.get '/views/:file', (req, res) ->
+    res.sendFile "#{__dirname}/views/#{req.params.file}"
 
 app.listen '4000', ->
     console.log 'App listening on port 4000'
