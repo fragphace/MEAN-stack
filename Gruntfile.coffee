@@ -3,16 +3,16 @@ module.exports = (grunt) ->
         less:
             compile: 
                 options: 
-                    paths: ["style/", "node_modules/bootstrap/less"]
+                    paths: ["styles/", "node_modules/bootstrap/less"]
                 files: 
-                    "public/style.css": "style/index.less"              
+                    "public/style.css": "styles/index.less"              
 
         browserify:
             compile:
                 options:
                     transform: ['coffeeify']
                 files:
-                    'public/script.js': 'script/index.coffee'
+                    'public/script.js': 'scripts/index.coffee'
 
         clean:
             public: [
@@ -39,11 +39,11 @@ module.exports = (grunt) ->
 
         watch:
             script:
-                files: 'script/*.coffee'
+                files: 'scripts/*.coffee'
                 tasks: ['browserify']
 
             stylus:
-                files: 'style/*.less'
+                files: 'styles/*.less'
                 tasks: ['less']
 
         nodemon:
@@ -51,7 +51,7 @@ module.exports = (grunt) ->
                 script: './app.coffee'
                 options:
                     watchedExtensions: ['coffee']
-                    ignore: ['node_modules/**', 'script/*']
+                    ignore: ['node_modules/**', 'scripts/*']
                     env:
                         NODE_ENV: 'dev'
 
