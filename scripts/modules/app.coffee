@@ -1,4 +1,4 @@
-angular = require 'angular'
+require 'angular'
 require 'angular-route'
 
 module.exports = angular.module('app', ['ngRoute'])

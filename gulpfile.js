@@ -53,7 +53,7 @@ gulp.task('watch', function () {
     gulp.watch('styles/**/*.less', ['style']);
 });
 
-gulp.task('serve', ['watch'], function () {
+gulp.task('serve', ['watch', 'dev'], function () {
     return nodemon({
         script: './app.coffee',
         ext: 'coffee',
